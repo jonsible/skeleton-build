@@ -1,0 +1,24 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    {{ cookiecutter.role_name }}_install_from_source: true
+    {{ cookiecutter.role_name }}_user_strip: ['user.*']
+    {{ cookiecutter.role_name }}_user_filter: ['jsch.*']
+    {{ cookiecutter.role_name }}_source_path: "/opt"
+    {{ cookiecutter.role_name }}_skel_config: true
+  tasks:
+    - name: Creating users
+      become: true
+      user:
+        name: "{{'{{'}} item {{'}}'}}"
+        shell: /bin/bash
+      loop: ['jscherrer', 'user1', 'user2', 'svc_user', 'svc_user2']
+
+    - include_role:
+        name: {{ cookiecutter.role_name }}
+
+    - include_role:
+        name: {{ cookiecutter.role_name }}
+      vars:
+        {{ cookiecutter.role_name }}_force_install: true

@@ -1,0 +1,25 @@
+{
+  "role_name": "role",
+  "_author": "Jonathan Scherrer",
+  "_github_user": "joscherrer",
+  "description": "Role to install {{ cookiecutter.role_name }}",
+  "_min_ansible_version": "2.3",
+  "platforms": {
+    "CentOS": [
+      "7"
+    ],
+    "Debian": [
+      "stretch"
+    ],
+    "Fedora": [
+      "29"
+    ],
+    "Ubuntu": [
+      "bionic"
+    ]
+  },
+  "galaxy_tags": {},
+  "dependencies": {},
+  "_year": "2020",
+  "_version" : "0.1.0"
+}

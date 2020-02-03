@@ -1,0 +1,34 @@
+---
+language: python
+sudo: required
+cache:
+  pip: true
+
+env:
+  global:
+    - fast_finish: true
+
+services:
+  - docker
+
+before_install:
+  - sudo apt-get -qq update
+
+install:
+  - sudo apt-get -y install python-pip libssl-dev
+  - pip install --upgrade setuptools
+  - pip install molecule
+  - pip install molecule[docker]
+
+script:
+  - molecule init template --url https://github.com/joscherrer/ansible-role-skelbuild --role-name zsh --no-input
+  - cd zsh
+  - molecule create
+  - molecule lint
+  - molecule converge -- -e zsh_install_from_source=true
+  - molecule destroy
+
+notifications:
+  email:
+    on_failure: change
+    on_success: never

@@ -1,0 +1,9 @@
+---
+{% raw %}
+- name: Installing build tools
+  become: true
+  apt:
+    name: "{{ build_tools }}"
+    update_cache: true
+    state: present
+{% endraw %}

@@ -1,0 +1,16 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    {{ cookiecutter.role_name }}_install_from_source: true
+    {{ cookiecutter.role_name }}_prefix: "/test/prefix"
+    {{ cookiecutter.role_name }}_source_path: "/test/source"
+    {{ cookiecutter.role_name }}_skel_config: true
+  tasks:
+    - include_role:
+        name: {{ cookiecutter.role_name }}
+
+    - include_role:
+        name: {{ cookiecutter.role_name }}
+      vars:
+        {{ cookiecutter.role_name }}_force_install: true

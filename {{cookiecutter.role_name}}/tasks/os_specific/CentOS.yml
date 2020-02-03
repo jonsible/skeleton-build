@@ -1,0 +1,6 @@
+---
+- name: Installing Software collections
+  become: true
+  yum:
+    name: centos-release-scl
+    state: present

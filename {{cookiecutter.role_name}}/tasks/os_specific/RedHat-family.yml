@@ -1,0 +1,21 @@
+---
+{% raw %}
+- name: Installing build tools
+  become: true
+  yum:
+    name: "{{ build_tools }}"
+    state: present
+
+- name: Installing ncurses
+  become: true
+  yum:
+    name: ncurses-devel
+    state: present
+
+- name: Installing devtoolset-8
+  become: true
+  yum:
+    name: devtoolset-8
+    state: present
+  when: ansible_distribution != "Fedora"
+{% endraw %}
