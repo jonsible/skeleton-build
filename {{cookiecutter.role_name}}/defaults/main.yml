@@ -1,3 +1,4 @@
+# yamllint disable rule:line-length
 ---
 {{ cookiecutter.role_name }}_git_version_cmd: git ls-remote --tags https://github.com/zsh-users/zsh | sed 's/.*\///' | egrep -o "[0-9]*(\.[0-9]*)(\.[0-9]*)?$" | sort -V | tail -n1
 {{ cookiecutter.role_name }}_local_version_cmd: /usr/bin/zsh --version | egrep -o "[0-9]*(\.[0-9]*)(\.[0-9]*)?"

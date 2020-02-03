@@ -1,6 +1,4 @@
 ---
-- name: Uninstall global
-  block:
 - name: Uninstalling {{ cookiecutter.role_name }}
   become: true
   make:

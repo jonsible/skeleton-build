@@ -1,3 +1,4 @@
+# yamllint disable rule:line-length
 ---
 {% raw %}
 - name: Include OS-specific variables.
@@ -7,25 +8,20 @@
   include_vars: "{{ ansible_distribution }}.yml"
 
 - name: Include tasks
-  include_tasks:
-    file: "os_specific/{{ ansible_distribution }}.yml"
+  include_tasks: "os_specific/{{ ansible_distribution }}.yml"
 
 - name: Include tasks
-  include_tasks:
-    file: "os_specific/{{ ansible_os_family }}-family.yml"
+  include_tasks: "os_specific/{{ ansible_os_family }}-family.yml"
 {% endraw %}
-
-- include_tasks:
-    name: install_repo.yml
+- include_tasks: install_repo.yml
   when: not {{ cookiecutter.role_name }}_install_from_source|bool
 
-- include_tasks:
-    name: set_user_list.yml
-  when: > 
+- include_tasks: set_user_list.yml
+  when: >
     {{ cookiecutter.role_name }}_user_config|bool or
     {{ cookiecutter.role_name }}_user_install|bool
 
-######################################################## Prepare source install ########################################################
+############### Prepare source install ###############
 
 - name: Pre-tasks to install from source
   block:
@@ -69,7 +65,7 @@
       when: {{ cookiecutter.role_name }}_installed.stat.exists
   when: {{ cookiecutter.role_name }}_install_from_source|bool
 
-############################################################ Source Install ############################################################
+############### Source Install ###############
 
 - name: Install from source
   block:
@@ -79,16 +75,14 @@
         name: {{ cookiecutter.role_name }}
         state: absent
 
-    - include_tasks:
-        name: uninstall_source.yml
+    - include_tasks: uninstall_source.yml
       when:
         - {{ cookiecutter.role_name }}_installed.stat.exists
-        - > 
+        - >
           ({{ cookiecutter.role_name }}_git_version != {{ cookiecutter.role_name }}_local_version) or
           {{ cookiecutter.role_name }}_force_install|bool
 
-    - include_tasks:
-        name: install_source.yml
+    - include_tasks: install_source.yml
       when: {{ cookiecutter.role_name }}_user_install|bool
       loop: "{{'{{'}} {{ cookiecutter.role_name }}_user_list {{'}}'}}"
 
@@ -99,4 +93,4 @@
       {{ cookiecutter.role_name }}_force_install|bool or
       ({{ cookiecutter.role_name }}_git_version != {{ cookiecutter.role_name }}_local_version)
 
-################################################################ Config ################################################################
+############### Config ###############

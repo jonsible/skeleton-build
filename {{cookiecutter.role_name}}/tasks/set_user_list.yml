@@ -1,8 +1,9 @@
 ---
-- assert:
+- name: Exiting if no user filter/strip provided
+  assert:
     that: >
-    {{ cookiecutter.role_name }}_user_strip|length > 0 or 
-    {{ cookiecutter.role_name }}_user_filter|length > 0
+      {{ cookiecutter.role_name }}_user_strip|length > 0 or
+      {{ cookiecutter.role_name }}_user_filter|length > 0
 
 - name: Getting ulist
   include_role:
