@@ -21,7 +21,7 @@ install:
   - pip install molecule[docker]
 
 script:
-  - molecule init template --url https://github.com/joscherrer/ansible-role-skelbuild --role-name zsh --no-input
+  - cookiecutter https://github.com/jonsible/skeleton-build --no-input role_name=zsh
   - cd zsh
   - molecule create
   - molecule lint
