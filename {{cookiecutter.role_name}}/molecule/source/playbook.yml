@@ -8,6 +8,13 @@
     {{ cookiecutter.role_name }}_skel_config: true
   tasks:
     - include_role:
+        name: geerlingguy.git
+      vars:
+        git_install_from_source: true
+        git_install_from_source_force_update: true
+        git_install_path: "/usr/local"
+        git_install_version: "2.24.1"
+    - include_role:
         name: {{ cookiecutter.role_name }}
 
     - include_role:
