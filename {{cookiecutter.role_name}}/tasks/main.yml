@@ -52,12 +52,11 @@
     - name: Set forced version
       set_fact:
         {{ cookiecutter.role_name }}_git_version: "{{'{{'}} {{ cookiecutter.role_name }}_version {{'}}'}}"
-      when: {{ cookiecutter.role_name }}_force_install | bool
 
     - name: Set latest {{ cookiecutter.role_name }} version
       set_fact:
         {{ cookiecutter.role_name }}_git_version: "{{'{{'}} {{ cookiecutter.role_name }}_git.stdout {{'}}'}}"
-      when: not {{ cookiecutter.role_name }}_force_install
+      when: {{ cookiecutter.role_name }}_git_version is not defined
 
     - name: Set local {{ cookiecutter.role_name }} version
       set_fact:

@@ -10,7 +10,7 @@
 {{ cookiecutter.role_name }}_force_install: "{{'{{'}} global_force_install | default(false) {{'}}'}}"
 {{ cookiecutter.role_name }}_user_strip: "{{'{{'}} global_user_strip | default([]) {{'}}'}}"
 {{ cookiecutter.role_name }}_user_filter: "{{'{{'}} global_user_filter | default([]){{'}}'}}"
-{{ cookiecutter.role_name }}_version: ""
+{{ cookiecutter.role_name }}_version: "2.9"
 
 # Shouldn't be changed unless necessary
 {{ cookiecutter.role_name }}_bin_name: "{{ cookiecutter.role_name }}"
@@ -18,5 +18,5 @@
 # Shouldn't be changed
 {{ cookiecutter.role_name }}_user_list: "{{'{{'}} global_user_list | default([]) {{'}}'}}"
 {{ cookiecutter.role_name }}_git_version_cmd: git ls-remote --tags https://github.com/tmux/tmux.git | sed 's/.*\///' | egrep -o "[0-9]*(\.[0-9]*)(\.[0-9]*)?$" | sort -V | tail -n1
-{{ cookiecutter.role_name }}_local_version_cmd: /usr/bin/tmux -V | egrep -o "[0-9]*(\.[0-9]*)(\.[0-9]*)?"
+{{ cookiecutter.role_name }}_local_version_cmd: /usr/bin/tmux -V | egrep -o "[0-9]*(\.[0-9]*)(\.[0-9]*)?([a-z])?"
 {{ cookiecutter.role_name }}_source_url: "https://github.com/tmux/tmux/releases/download/{{ cookiecutter.role_name }}-{{'{{'}} {{ cookiecutter.role_name }}_git_version {{'}}'}}.tar.gz"
