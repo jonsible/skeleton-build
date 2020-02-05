@@ -9,10 +9,11 @@
 - name: Installing additionnal dependencies
   become: true
   yum:
-    name: ncurses-devel
+    name: "{{ item }}"
     state: present
   loop:
     - ncurses-devel
+    - libevent
     - libevent-devel
     - pkgconfig
 
