@@ -56,7 +56,7 @@
     - name: Set latest {{ cookiecutter.role_name }} version
       set_fact:
         {{ cookiecutter.role_name }}_git_version: "{{'{{'}} {{ cookiecutter.role_name }}_git.stdout {{'}}'}}"
-      when: {{ cookiecutter.role_name }}_git_version is not defined
+      when: {{ cookiecutter.role_name }}_git_version == ""
 
     - name: Set local {{ cookiecutter.role_name }} version
       set_fact:
