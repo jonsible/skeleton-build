@@ -83,7 +83,6 @@
           {{ cookiecutter.role_name }}_force_install|bool
 
     - include_tasks: install_source.yml
-      when: {{ cookiecutter.role_name }}_user_install|bool
       loop: "{{'{{'}} {{ cookiecutter.role_name }}_user_list {{'}}'}}"
 
   when:
