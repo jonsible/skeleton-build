@@ -35,4 +35,4 @@ galaxy_info:
         git_install_path: "/usr/local"
         git_install_version: "2.24.1"
 
-    - role: joscherrer.ulist
+    - role: jonsible.ulist

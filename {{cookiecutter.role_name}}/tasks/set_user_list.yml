@@ -7,7 +7,7 @@
 
 - name: Getting ulist
   include_role:
-    name: joscherrer.ulist
+    name: jonsible.ulist
     tasks_from: set_ulist.yml
   when: {{ cookiecutter.role_name }}_user_list|length == 0
 
@@ -18,7 +18,7 @@
 
 - name: Processing ulist
   include_role:
-    name: joscherrer.ulist
+    name: jonsible.ulist
     tasks_from: process_ulist.yml
   vars:
     filter: "{{'{{'}} {{ cookiecutter.role_name }}_user_filter {{'}}'}}"

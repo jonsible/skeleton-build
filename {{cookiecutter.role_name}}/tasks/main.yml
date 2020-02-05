@@ -42,7 +42,7 @@
     - name: Getting current {{ cookiecutter.role_name }} version
       shell: |
         set -o pipefail
-        {{'{{'}} {{ cookiecutter.role_name }}_git_version_cmd {{'}}'}}
+        {{'{{'}} {{ cookiecutter.role_name }}_local_version_cmd {{'}}'}}
       args:
         executable: /bin/bash
       when: {{ cookiecutter.role_name }}_installed.stat.exists
