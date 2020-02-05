@@ -17,4 +17,3 @@
   include_tasks: uninstall_source_user.yml
   when: {{ cookiecutter.role_name }}_user_install|bool
   loop: "{{'{{'}} lookup('dict', {{ cookiecutter.role_name }}_user_list, wantlist=true) {{'}}'}}"
-
