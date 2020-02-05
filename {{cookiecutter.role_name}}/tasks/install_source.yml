@@ -9,7 +9,7 @@
 - name: Downloading the latest version of {{ cookiecutter.role_name }}
   become: true
   unarchive:
-    src: "{{'{{'}} source_url {{'}}'}}"
+    src: "{{'{{'}} {{ cookiecutter.role_name }}_source_url {{'}}'}}"
     dest: "{{'{{'}} {{ cookiecutter.role_name }}_source_path {{'}}'}}/{{ cookiecutter.role_name }}-{{'{{'}} {{ cookiecutter.role_name }}_git_version {{'}}'}}/"
     extra_opts:
       - --strip-components=1
