@@ -21,12 +21,9 @@ install:
   - pip install molecule[docker]
 
 script:
-  - cookiecutter https://github.com/jonsible/skeleton-build --no-input role_name=zsh
-  - cd zsh
-  - molecule create
-  - molecule lint
-  - molecule converge -- -e zsh_install_from_source=true
-  - molecule destroy
+  - cookiecutter https://github.com/jonsible/skeleton-build --no-input role_name=tmux
+  - cd tmux
+  - molecule test --all
 
 notifications:
   email:
