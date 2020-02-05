@@ -6,11 +6,15 @@
     name: "{{ build_tools }}"
     state: present
 
-- name: Installing ncurses
+- name: Installing additionnal dependencies
   become: true
   yum:
     name: ncurses-devel
     state: present
+  loop:
+    - ncurses-devel
+    - libevent-devel
+    - pkgconfig
 
 - name: Installing devtoolset-8
   become: true

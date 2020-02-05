@@ -17,6 +17,6 @@
 
 # Shouldn't be changed
 {{ cookiecutter.role_name }}_user_list: "{{'{{'}} global_user_list | default([]) {{'}}'}}"
-{{ cookiecutter.role_name }}_git_version_cmd: git ls-remote --tags https://github.com/zsh-users/zsh | sed 's/.*\///' | egrep -o "[0-9]*(\.[0-9]*)(\.[0-9]*)?$" | sort -V | tail -n1
-{{ cookiecutter.role_name }}_local_version_cmd: /usr/bin/zsh --version | egrep -o "[0-9]*(\.[0-9]*)(\.[0-9]*)?"
-{{ cookiecutter.role_name }}_source_url: "https://github.com/zsh-users/zsh/archive/{{ cookiecutter.role_name }}-{{'{{'}} {{ cookiecutter.role_name }}_git_version {{'}}'}}.tar.gz"
+{{ cookiecutter.role_name }}_git_version_cmd: git ls-remote --tags https://github.com/tmux/tmux.git | sed 's/.*\///' | egrep -o "[0-9]*(\.[0-9]*)(\.[0-9]*)?$" | sort -V | tail -n1
+{{ cookiecutter.role_name }}_local_version_cmd: /usr/bin/tmux -V | egrep -o "[0-9]*(\.[0-9]*)(\.[0-9]*)?"
+{{ cookiecutter.role_name }}_source_url: "https://github.com/tmux/tmux/releases/download/{{ cookiecutter.role_name }}-{{'{{'}} {{ cookiecutter.role_name }}_git_version {{'}}'}}.tar.gz"
