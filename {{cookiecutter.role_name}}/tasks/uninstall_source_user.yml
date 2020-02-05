@@ -1,0 +1,15 @@
+---
+- name: Configuring {{ cookiecutter.role_name }}
+  become: true
+  shell: |
+    ./configure --prefix="{{'{{'}} item.value['home'] {{'}}'}}/.local/"
+  changed_when: false
+  args:
+    chdir: "{{'{{'}} {{ cookiecutter.role_name }}_source_path {{'}}'}}/{{ cookiecutter.role_name }}-{{'{{'}} {{ cookiecutter.role_name }}_git_version {{'}}'}}/"
+
+- name: Uninstalling {{ cookiecutter.role_name }} (user)
+  become: true
+  become_user: "{{'{{'}} item.key {{'}}'}}"
+  make:
+    target: uninstall
+    chdir: "{{'{{'}} {{ cookiecutter.role_name }}_source_path {{'}}'}}/{{ cookiecutter.role_name }}-{{'{{'}} {{ cookiecutter.role_name }}_local_version {{'}}'}}/"
