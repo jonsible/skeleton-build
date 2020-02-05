@@ -1,14 +1,4 @@
 ---
-- name: Configuring {{ cookiecutter.role_name }}
-  become: true
-  shell: |
-    ./configure
-    # scl enable devtoolset-8 -- /usr/bin/cmake ..
-  changed_when: false
-  args:
-    chdir: "{{'{{'}} {{ cookiecutter.role_name }}_source_path {{'}}'}}/{{ cookiecutter.role_name }}-{{'{{'}} {{ cookiecutter.role_name }}_git_version {{'}}'}}/"
-  when: not {{ cookiecutter.role_name }}_user_install|bool
-
 - name: Uninstalling {{ cookiecutter.role_name }}
   become: true
   make:
@@ -16,13 +6,15 @@
     chdir: "{{'{{'}} {{ cookiecutter.role_name }}_source_path {{'}}'}}/{{ cookiecutter.role_name }}-{{'{{'}} {{ cookiecutter.role_name }}_local_version {{'}}'}}/"
   when: not {{ cookiecutter.role_name }}_user_install|bool
 
-- name: Include {{ cookiecutter.role_name }} user uninstall
-  include_tasks: uninstall_source_user.yml
-  when: {{ cookiecutter.role_name }}_user_install|bool
-  loop: "{{'{{'}} lookup('dict', {{ cookiecutter.role_name }}_user_list, wantlist=true) {{'}}'}}"
-
 - name: Removing source folder
   become: true
   file:
     path: "{{'{{'}} {{ cookiecutter.role_name }}_source_path {{'}}'}}/{{ cookiecutter.role_name }}-{{'{{'}} {{ cookiecutter.role_name }}_local_version {{'}}'}}/"
     state: absent
+  when: not {{ cookiecutter.role_name }}_user_install|bool
+
+- name: Include {{ cookiecutter.role_name }} user uninstall
+  include_tasks: uninstall_source_user.yml
+  when: {{ cookiecutter.role_name }}_user_install|bool
+  loop: "{{'{{'}} lookup('dict', {{ cookiecutter.role_name }}_user_list, wantlist=true) {{'}}'}}"
+
