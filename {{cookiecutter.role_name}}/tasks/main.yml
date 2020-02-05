@@ -51,7 +51,7 @@
 
     - name: Set forced version
       set_fact:
-        {{ cookiecutter.role_name }}_git_version: "{{'{{'}} {{ cookiecutter.role_name }}_install_version {{'}}'}}"
+        {{ cookiecutter.role_name }}_git_version: "{{'{{'}} {{ cookiecutter.role_name }}_version {{'}}'}}"
       when: {{ cookiecutter.role_name }}_force_install | bool
 
     - name: Set latest {{ cookiecutter.role_name }} version
