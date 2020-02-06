@@ -20,5 +20,10 @@
 
     - include_role:
         name: {{ cookiecutter.role_name }}
+        apply:
+          tags:
+            - molecule-idempotence-notest
       vars:
         {{ cookiecutter.role_name }}_force_install: true
+      tags:
+        - molecule-idempotence-notest
