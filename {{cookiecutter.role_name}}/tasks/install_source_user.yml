@@ -34,6 +34,7 @@
 - name: Installing {{ cookiecutter.role_name }} (user)
   become: true
   become_user: "{{'{{'}} item.key {{'}}'}}"
+  changed_when: false
   make:
     chdir: "{{'{{'}} item.value['home'] {{'}}'}}/.local/src/{{ cookiecutter.role_name }}-{{'{{'}} {{ cookiecutter.role_name }}_git_version {{'}}'}}/"
     target: install
