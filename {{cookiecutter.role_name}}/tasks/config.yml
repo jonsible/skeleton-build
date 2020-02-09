@@ -17,6 +17,8 @@
     mode: 0700
     owner: "{{'{{'}} item.key {{'}}'}}"
     state: directory
+  loop: "{{'{{'}} lookup('dict', {{ cookiecutter.role_name }}_user_list, wantlist=true) {{'}}'}}"
+
 
 - name: Installing user config
   become: true
