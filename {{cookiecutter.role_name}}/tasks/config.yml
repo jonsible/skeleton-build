@@ -1,0 +1,22 @@
+---
+- name: Creating skel config
+  become: true
+  copy:
+    src: files/.tmux.conf
+    dest: /etc/skel/.tmux.conf
+    owner: root
+    group: root
+    mode: 644
+  when: {{ cookiecutter.role_name }}_skel_config|bool
+
+- name: Installing user config
+  become: true
+  become_user: "{{'{{'}} item.key {{'}}'}}"
+  copy:
+    src: files/.tmux.conf
+    dest: "{{'{{'}} item.value['home'] {{'}}'}}/.config/tmux/.tmux.conf"
+    owner: "{{'{{'}} item.key {{'}}'}}"
+    mode: 644
+    attr: +i
+  loop: "{{'{{'}} lookup('dict', {{ cookiecutter.role_name }}_user_list, wantlist=true) {{'}}'}}"
+  when: {{ cookiecutter.role_name }}_user_config|bool

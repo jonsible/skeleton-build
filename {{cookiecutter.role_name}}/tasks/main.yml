@@ -91,3 +91,6 @@
       ({{ cookiecutter.role_name }}_git_version != {{ cookiecutter.role_name }}_local_version)
 
 ############### Config ###############
+
+- name: Installing config
+  include_tasks: config.yml
