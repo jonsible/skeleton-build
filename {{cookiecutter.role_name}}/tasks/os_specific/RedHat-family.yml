@@ -16,11 +16,4 @@
     - libevent
     - libevent-devel
     - pkgconfig
-
-- name: Installing devtoolset-8
-  become: true
-  yum:
-    name: devtoolset-8
-    state: present
-  when: ansible_distribution != "Fedora"
 {% endraw %}
