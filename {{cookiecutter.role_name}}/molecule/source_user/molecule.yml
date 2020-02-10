@@ -12,6 +12,8 @@ platforms:
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:rw"
     command: "/sbin/init"
+    capabilities:
+      - LINUX_IMMUTABLE
     tty: true
     env:
       container: docker
@@ -21,6 +23,8 @@ platforms:
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:rw"
     command: "/lib/systemd/systemd"
+    capabilities:
+      - LINUX_IMMUTABLE
     tty: true
     env:
       container: docker
