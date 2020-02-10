@@ -5,8 +5,8 @@
   pre_tasks:
     - name: Getting container info
       docker_container_info:
-        name: "{{ inventory_hostname }}"
-        docker_host: "{{ lookup('env', 'DOCKER_HOST') | default('unix://var/run/docker.sock') }}"
+        name: "{{'{{'}} inventory_hostname {{'}}'}}"
+        docker_host: "{{'{{'}} lookup('env', 'DOCKER_HOST') | default('unix://var/run/docker.sock') {{'}}'}}"
       register: container
       delegate_to: localhost
   tasks:
