@@ -25,7 +25,7 @@
   become_user: "{{'{{'}} item.key {{'}}'}}"
   copy:
     src: files/.tmux.conf
-    dest: "{{'{{'}} item.value['home'] {{'}}'}}/.config/tmux/.tmux.conf"
+    dest: "{{'{{'}} item.value['home'] {{'}}'}}/.tmux.conf"
     owner: "{{'{{'}} item.key {{'}}'}}"
     mode: 0600
     attr: +i
