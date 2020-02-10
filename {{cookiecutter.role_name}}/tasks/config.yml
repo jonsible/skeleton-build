@@ -22,7 +22,6 @@
 
 - name: Installing user config
   become: true
-  become_user: "{{'{{'}} item.key {{'}}'}}"
   copy:
     src: files/.tmux.conf
     dest: "{{'{{'}} item.value['home'] {{'}}'}}/.tmux.conf"
