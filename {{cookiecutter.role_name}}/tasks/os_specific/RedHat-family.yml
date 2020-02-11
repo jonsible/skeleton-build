@@ -4,7 +4,7 @@
   yum:
     name: "{{'{{'}} build_tools {{'}}'}}"
     state: present
-  when: "{{'{{'}} {{ cookiecutter.role_name }}_install_from_source {{'}}'}}"
+  when: {{ cookiecutter.role_name }}_install_from_source|bool
 
 - name: Installing additionnal dependencies
   become: true
@@ -16,4 +16,4 @@
     - libevent
     - libevent-devel
     - pkgconfig
-  when: "{{'{{'}} {{ cookiecutter.role_name }}_install_from_source {{'}}'}}"
+  when: {{ cookiecutter.role_name }}_install_from_source|bool

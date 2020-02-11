@@ -5,7 +5,7 @@
     name: "{{'{{'}} build_tools {{'}}'}}"
     update_cache: true
     state: present
-  when: "{{'{{'}} {{ cookiecutter.role_name }}_install_from_source {{'}}'}}"
+  when: {{ cookiecutter.role_name }}_install_from_source|bool
 
 - name: Installing additionnal build tools
   become: true
@@ -15,4 +15,4 @@
   loop:
     - ncurses
     - libevent
-  when: "{{'{{'}} {{ cookiecutter.role_name }}_install_from_source {{'}}'}}"
+  when: {{ cookiecutter.role_name }}_install_from_source|bool
