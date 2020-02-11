@@ -9,7 +9,7 @@
 
 - name: Installing additionnal build tools
   become: true
-  apt:
+  pacman:
     name: "{{'{{'}} item {{'}}'}}"
     state: present
   loop:
