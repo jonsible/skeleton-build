@@ -1,7 +1,7 @@
 ---
 - name: Installing build tools
   become: true
-  apt:
+  pacman:
     name: "{{'{{'}} build_tools {{'}}'}}"
     update_cache: true
     state: present
@@ -13,8 +13,6 @@
     name: "{{'{{'}} item {{'}}'}}"
     state: present
   loop:
-    - autoconf
-    - libncurses-dev
-    - libevent-dev
-    - pkg-config
+    - ncurses
+    - libevent
   when: "{{'{{'}} {{ cookiecutter.role_name }}_install_from_source {{'}}'}}"

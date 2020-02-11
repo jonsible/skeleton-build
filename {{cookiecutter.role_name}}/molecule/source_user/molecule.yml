@@ -30,6 +30,10 @@ platforms:
       container: docker
       LC_ALL: en_US.utf8
       DEBIAN_FRONTEND: noninteractive
+  - name: archlinux-latest
+    image: jonsible/archlinux:latest
+    env:
+      container: docker
 provisioner:
   name: ansible
   lint:

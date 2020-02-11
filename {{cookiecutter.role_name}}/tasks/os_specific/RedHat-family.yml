@@ -1,19 +1,19 @@
 ---
-{% raw %}
 - name: Installing build tools
   become: true
   yum:
-    name: "{{ build_tools }}"
+    name: "{{'{{'}} build_tools {{'}}'}}"
     state: present
+  when: "{{'{{'}} {{ cookiecutter.role_name }}_install_from_source {{'}}'}}"
 
 - name: Installing additionnal dependencies
   become: true
   yum:
-    name: "{{ item }}"
+    name: "{{'{{'}} item {{'}}'}}"
     state: present
   loop:
     - ncurses-devel
     - libevent
     - libevent-devel
     - pkgconfig
-{% endraw %}
+  when: "{{'{{'}} {{ cookiecutter.role_name }}_install_from_source {{'}}'}}"
