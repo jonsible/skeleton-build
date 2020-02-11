@@ -7,6 +7,12 @@
     state: present
   when: {{ cookiecutter.role_name }}_install_from_source|bool
 
+- name: Installing git
+  become: true
+  pacman:
+    name: git
+    state: present
+
 - name: Installing additionnal build tools
   become: true
   pacman:
