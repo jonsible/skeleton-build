@@ -48,7 +48,7 @@ Install {{ cookiecutter.role_name }} with the default settings
 
 ## License
 
-MIT
+GPL-3.0-or-later
 
 ## Author Information
 
