@@ -26,11 +26,10 @@ For more advanced usage the following variables are available:
 {{ cookiecutter.role_name }}_user_config: "{{'{{'}}_global_user_config | default(false) {{'}}'}}"
 {{ cookiecutter.role_name }}_skel_config: "{{'{{'}} global_skel_config | default(false) {{'}}'}}"
 {{ cookiecutter.role_name }}_install_from_source: "{{'{{'}} global_install_from_source | default(false) {{'}}'}}"
-{{ cookiecutter.role_name }}_source_url: "https://github.com/user/{{ cookiecutter.role_name }}/archive/{{ cookiecutter.role_name }}-{{'{{'}} {{ cookiecutter.role_name }}_git_version {{'}}'}}.tar.gz"
 {{ cookiecutter.role_name }}_force_install: "{{'{{'}} global_force_install | default(false) {{'}}'}}"
 {{ cookiecutter.role_name }}_user_strip: "{{'{{'}} global_user_strip | default([]) {{'}}'}}"
 {{ cookiecutter.role_name }}_user_filter: "{{'{{'}} global_user_filter | default([]){{'}}'}}"
-{{ cookiecutter.role_name }}_version: ""
+{{ cookiecutter.role_name }}_version: "2.9"
 ```
 
 ## Dependencies
