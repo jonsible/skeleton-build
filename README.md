@@ -22,6 +22,20 @@ Generate a Python package project::
     cookiecutter https://github.com/jonsible/skeleton-build.git
 ```
 
+Files you should edit :
+
+```
+defaults/*
+files/*
+molecule/*
+tasks/
+  source/
+    os_specific/*
+    install.yml
+  config.yml
+vars/*
+```
+
 ## License
 
 GPL-3.0-or-later
