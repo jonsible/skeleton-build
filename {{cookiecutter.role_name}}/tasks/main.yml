@@ -32,7 +32,9 @@
         gid: 1000
         uid: 1000
         shell: /bin/bash
-  when: not {{ cookiecutter.role_name }}_user_install|bool
+  when:
+    - not {{ cookiecutter.role_name }}_user_install|bool
+    - {{ cookiecutter.role_name }}_install_from_source|bool
 
 - name: Install from source
   include_tasks: source.yml
