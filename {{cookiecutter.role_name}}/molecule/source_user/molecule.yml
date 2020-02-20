@@ -26,6 +26,8 @@ platforms:
       DEBIAN_FRONTEND: noninteractive
   - name: ubuntu-18.04
     image: jonsible/ubuntu:18.04-build
+    capabilities:
+      - LINUX_IMMUTABLE
     tty: true
     env:
       container: docker
