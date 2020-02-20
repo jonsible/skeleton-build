@@ -24,6 +24,13 @@ platforms:
       container: docker
       LC_ALL: en_US.utf8
       DEBIAN_FRONTEND: noninteractive
+  - name: ubuntu-18.04
+    image: jonsible/ubuntu:18.04-build
+    tty: true
+    env:
+      container: docker
+      LC_ALL: en_US.utf8
+      DEBIAN_FRONTEND: noninteractive
   - name: archlinux-latest
     image: jonsible/archlinux:latest-build
     capabilities:
