@@ -10,13 +10,14 @@
       "7"
     ],
     "Debian": [
-      "stretch"
-    ],
-    "Fedora": [
-      "29"
+      "stretch",
+      "buster"
     ],
     "Ubuntu": [
       "bionic"
+    ],
+    "Archlinux": [
+      "any"
     ]
   },
   "galaxy_tags": {},
