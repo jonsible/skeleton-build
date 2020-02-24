@@ -6,11 +6,6 @@
     {{ cookiecutter.role_name }}_prefix: "/usr/local"
     {{ cookiecutter.role_name }}_source_path: "/test/source"
     {{ cookiecutter.role_name }}_skel_config: true
-  pre_tasks:
-    - name: Update cache
-      apt:
-        update_cache: true
-      when: ansible_os_family == "Debian"
   tasks:
     - include_role:
         name: {{ cookiecutter.role_name }}

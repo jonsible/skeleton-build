@@ -9,11 +9,6 @@
     {{ cookiecutter.role_name }}_skel_config: true
     {{ cookiecutter.role_name }}_user_install: true
     {{ cookiecutter.role_name }}_user_config: true
-  pre_tasks:
-    - name: Update cache
-      apt:
-        update_cache: true
-      when: ansible_os_family == "Debian"
   tasks:
     - name: Creating users
       become: true
